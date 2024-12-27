@@ -11,7 +11,7 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export async function loader() {
+export async function clientLoader() {
   return fakeDb.getRecipes();
 }
 
@@ -36,7 +36,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   );
 }
 
-export async function action({ request }: { request: Request }) {
+export async function clientAction({ request }: { request: Request }) {
   const data = await request.formData();
   await fakeDb.addRecipe({
     // @ts-ignore
@@ -49,6 +49,6 @@ export async function action({ request }: { request: Request }) {
   return { ok: true };
 }
 
-export function HydrateFallback() {
-  return <p>Loading Recipes...</p>;
-}
+// export function HydrateFallback() {
+//   return <p>Loading Recipes...</p>;
+// }

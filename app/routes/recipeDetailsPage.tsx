@@ -3,11 +3,11 @@ import RecipeDetails from "~/components/recipeDetails/RecipeDetails";
 import type { Route } from "./+types/recipeDetailsPage";
 import { Form, Link, redirect } from "react-router";
 
-export function loader({ params }: Route.LoaderArgs) {
+export function clientLoader({ params }: Route.LoaderArgs) {
   return fakeDb.getRecipeById(Number(params.id));
 }
 
-export async function action({ params }: Route.ActionArgs) {
+export async function clientAction({ params }: Route.ActionArgs) {
   await fakeDb.deleteRecipe(Number(params.id));
   return redirect("/");
 }
