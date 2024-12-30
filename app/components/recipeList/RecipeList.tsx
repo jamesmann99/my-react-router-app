@@ -1,6 +1,6 @@
 import type { RecipeDetails } from "~/db/data";
 import Recipe from "../recipe/Recipe";
-import { Form, Link } from "react-router";
+import { Form } from "react-router";
 
 interface RecipeListProps {
   recipes: RecipeDetails[];
@@ -15,7 +15,7 @@ export default function RecipeList({ recipes }: RecipeListProps) {
         <button type="submit">Create Todo</button>
       </Form>
       <div className="recipeListContainer">
-        <div>Recipes</div>
+        <div>Recipes For You!</div>
         <div className="flex flex-row flex-wrap gap-6">
           {recipes.map((recipe) => (
             <Recipe
